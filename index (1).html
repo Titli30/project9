@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Resume Builder</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <h1>Build Your Professional Resume</h1>
+    <p>Modern templates, easy editing, instant PDF export</p>
+    <button onclick="startBuilder()">Start Building</button>
+  </header>
+
+  <main id="builderSection" style="display:none;">
+    <form id="resumeForm">
+      <section class="form-left">
+        <label>Upload Photo <input type="file" id="profileImage" accept="image/*" /></label>
+        <input type="text" id="fullName" placeholder="Your Name" required />
+        <input type="text" id="title" placeholder="Job Title" required />
+        <input type="text" id="guardian" placeholder="Guardian Name" />
+        <input type="text" id="email" placeholder="Email" required />
+        <input type="text" id="phone" placeholder="Phone" required />
+        <input type="text" id="address" placeholder="Address" required />
+        <input type="text" id="github" placeholder="GitHub Link" />
+
+        <textarea id="skills" placeholder="Skills (comma separated)" rows="2" required></textarea>
+        <textarea id="languages" placeholder="Languages (comma separated)" rows="2" required></textarea>
+        <textarea id="hobbies" placeholder="Hobbies (comma separated)" rows="2"></textarea>
+      </section>
+
+      <section class="form-right">
+        <textarea id="profile" placeholder="Short Profile Summary" rows="4" required></textarea>
+
+        <h4>Work Experience</h4>
+        <div id="experienceSection">
+          <div class="exp-entry">
+            <input type="text" placeholder="Job Title" class="jobTitle" />
+            <input type="text" placeholder="Company Name" class="company" />
+            <input type="text" placeholder="Duration" class="duration" />
+            <textarea placeholder="Job Details" class="jobDetails" rows="3"></textarea>
+          </div>
+        </div>
+        <button type="button" onclick="addExperience()">Add Experience</button>
+
+        <h4>Education</h4>
+        <div id="educationSection">
+          <div class="edu-entry">
+            <input type="text" placeholder="Degree" class="degree" required />
+            <input type="text" placeholder="Institution" class="institution" required />
+            <input type="text" placeholder="Duration" class="eduDuration" required />
+            <input type="text" placeholder="Grade (optional)" class="grade" />
+          </div>
+        </div>
+        <button type="button" onclick="addEducation()">Add Education</button>
+
+        <h4>Projects</h4>
+        <div id="projectSection">
+          <div class="project-entry">
+            <input type="text" placeholder="Project Title" class="projectTitle" />
+            <textarea placeholder="Project Description" class="projectDesc" rows="3"></textarea>
+            <input type="text" placeholder="Project Link (optional)" class="projectLink" />
+          </div>
+        </div>
+        <button type="button" onclick="addProject()">Add Project</button>
+
+        <button type="submit">Generate Resume</button>
+        <button type="button" id="downloadBtn">Download PDF</button>
+      </section>
+    </form>
+
+    <section id="resumeOutput" class="resume-output"></section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
